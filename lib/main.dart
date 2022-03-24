@@ -20,13 +20,17 @@ class MyApp extends StatelessWidget {
             },
           ),
           appBar: AppBar(
-            backgroundColor: Colors.white,
+              backgroundColor: Colors.white,
               title: Row(children: [
                 Text(
                   '대치2동',
-                  style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black),
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold, color: Colors.black),
                 ),
-                Icon(Icons.keyboard_arrow_down),
+                Icon(
+                  Icons.keyboard_arrow_down,
+                  color: Colors.black,
+                ),
               ]),
               actions: [
                 SizedBox(
@@ -34,38 +38,67 @@ class MyApp extends StatelessWidget {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        Icon(Icons.search_outlined, color: Colors.black,),
-                        Icon(Icons.menu_outlined, color: Colors.black,),
-                        Icon(Icons.notifications_outlined, color: Colors.black,),
+                        Icon(
+                          Icons.search_outlined,
+                          color: Colors.black,
+                        ),
+                        Icon(
+                          Icons.menu_outlined,
+                          color: Colors.black,
+                        ),
+                        Row(
+                          children: [
+                            Icon(
+                              Icons.notifications_outlined,
+                              color: Colors.black,
+                            ),
+                            Column(
+//                              mainAxisAlignment:,
+                              children: [
+                                Container(
+                                  width: 7,
+                                  height: 7,
+                                  margin: EdgeInsets.fromLTRB(0, 15, 0, 0),
+                                  decoration: BoxDecoration(
+                                      color: Colors.orange,
+                                      shape: BoxShape.circle),
+                                ),
+                              ],
+                            )
+                          ],
+                        )
                       ],
                     ))
               ]),
           body: ShopItemList(),
           bottomNavigationBar: BottomAppBar(
-              child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              BottomAppBarItem(
-                  param: {'icon_url': Icons.home_filled, 'menu_text': "홈"}),
-              BottomAppBarItem(param: {
-                'icon_url': Icons.assignment_outlined,
-                'menu_text': "동네생활"
-              }),
-              BottomAppBarItem(param: {
-                'icon_url': Icons.place_outlined,
-                'menu_text': "내 근처"
-              }),
-              BottomAppBarItem(param: {
-                'icon_url': Icons.question_answer_outlined,
-                'menu_text': "채팅"
-              }),
-              BottomAppBarItem(param: {
-                'icon_url': Icons.person_outlined,
-                'menu_text': "나의 당근"
-              }),
-            ],
-          ))),
-
+              child: Padding(
+                  padding: EdgeInsets.fromLTRB(0, 10, 0, 0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      BottomAppBarItem(param: {
+                        'icon_url': Icons.home_filled,
+                        'menu_text': "홈"
+                      }),
+                      BottomAppBarItem(param: {
+                        'icon_url': Icons.assignment_outlined,
+                        'menu_text': "동네생활"
+                      }),
+                      BottomAppBarItem(param: {
+                        'icon_url': Icons.place_outlined,
+                        'menu_text': "내 근처"
+                      }),
+                      BottomAppBarItem(param: {
+                        'icon_url': Icons.question_answer_outlined,
+                        'menu_text': "채팅"
+                      }),
+                      BottomAppBarItem(param: {
+                        'icon_url': Icons.person_outlined,
+                        'menu_text': "나의 당근"
+                      }),
+                    ],
+                  )))),
     );
   }
 }
@@ -81,13 +114,14 @@ class BottomAppBarItem extends StatelessWidget {
         padding: EdgeInsets.all(10.0),
         child: SizedBox(
           width: 60,
-          height: 50,
+          height: 70,
           child: Column(
             children: [
-              Icon(param['icon_url']),
+              Icon(param['icon_url'],
+              size: 35,),
               Text(
                 param['menu_text'],
-                textScaleFactor: 0.6,
+                textScaleFactor: 1.0,
               ),
             ],
           ),
@@ -131,7 +165,7 @@ class ShopItem extends StatelessWidget {
                             padding: EdgeInsets.fromLTRB(15, 3, 0, 0),
                             child: Text(
                               param["area_name"] +
-                                  " " +
+                                  " · " +
                                   param["is_reupdated"] +
                                   " " +
                                   param["last_time"],
@@ -211,8 +245,8 @@ class ShopItemList extends StatelessWidget {
                 "is_reupdated": "",
                 "last_time": "57초 전",
                 "price_text": "(대충 너무 너무 비싼 가격)",
-              "comment_count": "0",
-              "favorite_count": "0",
+                "comment_count": "0",
+                "favorite_count": "0",
               }),
               ShopItem(param: {
                 "img_url": "assets/dog(2).png",
@@ -231,9 +265,8 @@ class ShopItemList extends StatelessWidget {
                 "is_reupdated": "",
                 "last_time": "58초 전",
                 "price_text": "(사실 돈으로 사는)",
-              "comment_count": "0",
-              "favorite_count": "0",
-
+                "comment_count": "0",
+                "favorite_count": "0",
               }),
               ShopItem(param: {
                 "img_url": "assets/dog(4).png",
@@ -242,8 +275,8 @@ class ShopItemList extends StatelessWidget {
                 "is_reupdated": "",
                 "last_time": "2분 전",
                 "price_text": "(그런 아이 아닙니다)",
-              "comment_count": "1",
-              "favorite_count": "2",
+                "comment_count": "1",
+                "favorite_count": "2",
               }),
               ShopItem(param: {
                 "img_url": "assets/dog(5).png",
@@ -252,8 +285,8 @@ class ShopItemList extends StatelessWidget {
                 "is_reupdated": "",
                 "last_time": "4분 전",
                 "price_text": "(안돼요)",
-              "comment_count": "3",
-              "favorite_count": "2",
+                "comment_count": "3",
+                "favorite_count": "2",
               }),
             ],
           ),
